@@ -46,36 +46,33 @@ import { api } from '../../api';
 
 
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-];
 
 export const Multitable=() => {
 
     const[datausuarios, setdatausuario]=useState([])
+
 
         useEffect(() => {
     
             api.get('/multitable').then(res => {
                 
                 console.log(res.data)  
-                setdatausuario(res.data)          
-                Object.entries(res.data)
-                .map(entry => {
-                    const [key,value] = entry
-                    console.log({key,value})
-                })
+                setdatausuario(res.data['multitable'])          
+                // Object.entries(res.data)
+                // .map(entry => {
+                //     const [key,value] = entry
+                //     console.log({key,value})
+                // })
+
+
+
+       
 
             }).catch(err => {
                 console.log(err)
             })
-          
+
         }, [])
 
 
@@ -83,25 +80,22 @@ export const Multitable=() => {
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="caption table">
         <caption>A basic table example with a caption</caption>
+        
         <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-          </TableRow>
+            <TableRow >
+              <TableCell>    id               </TableCell>
+              <TableCell align="right">   Name          </TableCell>
+    
+            </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {datausuarios.map((row) => (
+            <TableRow key={row._id}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.code}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.title}</TableCell>
+     
             </TableRow>
           ))}
         </TableBody>
