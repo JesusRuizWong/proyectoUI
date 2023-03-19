@@ -77,7 +77,7 @@ export const Multitable=() => {
 
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{marginTop:'5rem'}}>
       <Table sx={{ minWidth: 650 }} aria-label="caption table">
         <caption>A basic table example with a caption</caption>
         

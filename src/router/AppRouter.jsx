@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { LoginPage } from '../auth';
 import { Home } from '../feactures';
+import { MyPost } from '../feactures/pages/MyPost';
 import { useAuthStore } from '../hooks';
 
 
@@ -37,7 +38,7 @@ export const AppRouter = () => {
                     : (
                         <>
                             <Route path="/" element={ <Home /> } />
-                            <Route path="/NewPost" element={ <Home /> } />
+                            <Route path="/Anuncios" element={<MyPost/> } />
 
                             <Route path="/*" element={ <Navigate to="/" /> } />
                         </>

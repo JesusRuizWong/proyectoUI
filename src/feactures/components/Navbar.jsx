@@ -19,9 +19,9 @@ import { useAuthStore } from "../../hooks/useAuthStore"
 
 
 const pages = [  {id:'1', nombre:'Home' , icon:'home', color:'color1' , colort1:'color1t1' , colort2:'color1t2'  } ,   
-                 {id:'2', nombre:'Hoteles' , icon:'hotel',color:'color2', colort1:'color2t1' , colort2:'color2t2'  } ,
-                 {id:'3', nombre:'Circuitos' , icon:'maps',color:'color3',  colort1:'color3t1' , colort2:'color3t2'  } ,
-                 {id:'4', nombre:'Autos' , icon:'local_taxi',color:'color4',  colort1:'color4t1' , colort2:'color4t2'  } ,
+                 {id:'2', nombre:'Anuncios' , icon:'hotel',color:'color2', colort1:'color2t1' , colort2:'color2t2'  } ,
+                 {id:'3', nombre:'Tablas' , icon:'maps',color:'color3',  colort1:'color3t1' , colort2:'color3t2'  } ,
+                 {id:'4', nombre:'Multitablas' , icon:'local_taxi',color:'color4',  colort1:'color4t1' , colort2:'color4t2'  } ,
                  {id:'5', nombre:'Contactanos' , icon:'perm_phone_msg',color:'color5', colort1:'color5t1' , colort2:'color5t2' } ];
 
 const settings = [{id:'1', nombre:'Mi Perfil' , icon:'home', funcion:'color1'  } ]
@@ -56,10 +56,10 @@ export const Navbar = () => {
 })
 
   return (
-<AppBar id='nav' position="fixed" style={{backgroundColor:'transparent', boxShadow:'none'}}>
+<AppBar id='nav' position='fixed' style={{backgroundColor:'transparent', boxShadow:'none' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AirplanemodeActive sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <AirplanemodeActive  sx={{ display: { xs: 'none', md: 'flex'  } , color:'color1', mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -71,7 +71,7 @@ export const Navbar = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'color4',
               textDecoration: 'none',
             }}
           >
@@ -86,8 +86,7 @@ export const Navbar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
-         
+              sx={{color:'color1'}}
             >
               <MenuIcon />
             </IconButton>
@@ -127,7 +126,7 @@ export const Navbar = () => {
               ))}
             </Menu>
           </Box>
-          <AirplaneTicket sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <AirplaneTicket  sx={{ display: { xs: 'flex', md: 'none' }, color:'color2' ,mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -140,7 +139,7 @@ export const Navbar = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'color1',
               textDecoration: 'none',
             }}
           >
@@ -153,7 +152,7 @@ export const Navbar = () => {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, display: 'flex' }}
                 >  
-                  <Typography  color= 'white'   textTransform="none" mx={1} >{page.nombre}</Typography>
+                  <Typography  color= 'color2'   textTransform="none" mx={1} >{page.nombre}</Typography>
                 </Button>
                 </NavLink>  
             ))}

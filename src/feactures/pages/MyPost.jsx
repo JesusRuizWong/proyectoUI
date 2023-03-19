@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react';
 
-import { Navbar, CarouselBanner} from '../';
+import {  Multitable, Navbar} from '../';
 
 
 
-export const Home = () => {
+
+export const MyPost = () => {
 
 
 
   return (
     <>
       <Navbar />
-      <CarouselBanner />
+      <Multitable />
   
 
 
